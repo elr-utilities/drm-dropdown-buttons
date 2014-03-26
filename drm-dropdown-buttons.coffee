@@ -1,49 +1,36 @@
 ###############################################################################
 # Allows a button to display a dropdown when clicked
 ###############################################################################
+"use strict"
 
 ( ($) ->
+    class window.DrmDropdownButton
+        constructor: (@container = $('div.drm-dropdown-solid-btn-holder'), @speed = 300, @button = 'button') ->
+            self = @
 
-    drmDropdownButton = {
-        solidContainer: $ '.drm-dropdown-solid-btn-holder'
-        splitContainer: $ '.drm-dropdown-split-btn-holder'
+            self.container.on 'click', self.button, (e) ->
+                that = $ @
+                menu = that.next 'ul'
+                menuStatus = menu.is ':hidden'
 
-        config: {
-            speed: 300
-        }
+                # close any open menus
+                openButtons = self.container.find('ul').not(':hidden').prev 'button'
 
-        init: (config) ->
-            $.extend @.config, config
-            @.solidContainer.on 'click', 'button', @.toggleMenu
-            @.splitContainer.on 'click', 'button:last()', @.toggleMenu
-            $('html').on 'click', @.hideOpenMenus
+                unless openButtons.length is 0
+                    self.hideMenu.call openButtons, self.speed
 
-        toggleMenu: (e) ->
-            that = $ @
-            menu = that.next 'ul'
-            drmDropdownButton.hideOpenMenus.call that
+                if menuStatus
+                    self.showMenu.call that, self.speed
+                else
+                    self.hideMenu.call that, self.speed
+                e.preventDefault()
 
-            if menu.is ':hidden'
-                drmDropdownButton.showMenu.call that       
-            else
-                drmDropdownButton.hideMenu.call that
+        showMenu: (speed) ->
+            $(@).next('ul').addClass('clicked').slideDown speed
 
-            e.stopPropagation()
-
-        showMenu: ->
-            $(@).addClass('clicked').next('ul').slideDown drmDropdownButton.config.speed
-
-        hideMenu: ->
-            $(@).removeClass('clicked').next('ul').slideUp drmDropdownButton.config.speed
-
-        hideOpenMenus: ->
-            openSolidButtons = drmDropdownButton.solidContainer.find('ul').not(':hidden').prev 'button'
-            openSplitButtons = drmDropdownButton.splitContainer.find('ul').not(':hidden').prev 'button'
-
-            drmDropdownButton.hideMenu.call openSolidButtons
-            drmDropdownButton.hideMenu.call openSplitButtons
-    }
-
-    drmDropdownButton.init()
+        hideMenu: (speed) ->
+            $(@).next('ul').removeClass('clicked').slideUp speed
+            
+    new DrmDropdownButton()
 
 ) jQuery
