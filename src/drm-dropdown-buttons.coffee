@@ -3,6 +3,7 @@
 ###############################################################################
 "use strict"
 
+$ = jQuery
 class @DrmDropdownButton
     constructor: (@container = $('div.drm-dropdown-solid-btn-holder'), @speed = 300, @button = 'button') ->
         self = @
@@ -29,6 +30,7 @@ class @DrmDropdownButton
 
             unless openButtons.length is 0
                 self.changeMenu.call openButtons, 'showing', self.speed, self.activeClass
+            e.stopPropagation()
 
     changeMenu: (status, speed, activeClass) ->
         if status is 'hidden' then $(@).next('ul').addClass(activeClass).slideDown speed else $(@).next('ul').removeClass(activeClass).slideUp speed
