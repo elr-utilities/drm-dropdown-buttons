@@ -1,14 +1,11 @@
 {
   "name": "elr-dropdown-buttons",
-  "version": "1.0.1",
   "description": "dropdown menu buttons",
-  "main": "dist/elr-dropdown-buttons.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Beth3346/elr-dropdown-buttons.git"
-  },
-  "scripts": {
-    "build": "build"
+  "version": "1.0.1",
+  "author": "Elizabeth Rogers",
+  "bugs": {
+    "url": "https://github.com/Beth3346/elr-dropdown-buttons",
+    "email": "beth@elizabeth-rogers.com"
   },
   "dependencies": {
     "babel-runtime": "^6.0.0",
@@ -23,5 +20,18 @@
     "gulp-jshint": "^2.0.1",
     "gulp-sourcemaps": "^2.1.1",
     "jshint": "^2.9.3"
+  },
+  "homepage": "http://www.elizabeth-rogers.com/elr-utilities/js-dropdown-buttons.html",
+  "keywords": [
+    "javascript, jquery, button, form, ui"
+  ],
+  "license": "SEE LICENSE IN LICENSE.md",
+  "main": "dist/elr-dropdown-buttons.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Beth3346/elr-dropdown-buttons.git"
+  },
+  "scripts": {
+    "build": "build"
   }
 }
