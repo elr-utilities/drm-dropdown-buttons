@@ -38,6 +38,21 @@
   "keywords": [
     "javascript, jquery, button, form, ui"
   ],
+  "config": {
+    "ghooks": {
+      "pre-commit": "gulp"
+    }
+  },
+  "nyc": {
+    "check-coverage": true,
+    "branches": 0,
+    "functions": 0,
+    "lines": 0,
+    "statements": 0,
+    "include": [
+      "src/*.js"
+    ]
+  },
   "license": "SEE LICENSE IN LICENSE.md",
   "main": "dist/main.js",
   "repository": {
