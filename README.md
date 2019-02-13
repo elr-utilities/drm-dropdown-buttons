@@ -1,5 +1,5 @@
 # elr-dropdown-buttons
-[![Build Status](https://travis-ci.org/Beth3346/elr-dropdown-buttons.svg?branch=master)](https://travis-ci.org/Beth3346/elr-dropdown-buttons)
+[![Build Status](https://travis-ci.org/Beth3346/elr-dropdown-buttons.svg?branch=master)](https://travis-ci.org/Beth3346/elr-dropdown-buttons) [![Greenkeeper badge](https://badges.greenkeeper.io/Beth3346/elr-dropdown-buttons.svg)](https://greenkeeper.io/)
 
 dropdown menu buttons
 
